@@ -105,7 +105,7 @@ ml('account', '1611323');
     <h2 style="font-size:36px;font-weight:800;color:#fff;max-width:680px;margin:0 auto 14px;line-height:1.18;letter-spacing:-0.4px;">Get the Free 501c3 QuickStart Checklist</h2>
     <p style="font-size:17px;color:rgba(255,255,255,0.72);max-width:640px;margin:0 auto 30px;line-height:1.7;">Learn the first steps to launch your nonprofit without wasting months researching IRS requirements.</p>
     <div id="checklist-section" style="scroll-margin-top:20px;"></div>
-<form id="quickstart-checklist-form" action="https://assets.mailerlite.com/jsonp/1611323/forms/186997258521150558/subscribe" method="post" target="_blank" style="max-width:620px;margin:0 auto;">
+<form id="quickstart-checklist-form" style="max-width:620px;margin:0 auto;">
       <div style="display:flex;gap:12px;align-items:stretch;justify-content:center;flex-wrap:wrap;margin-bottom:14px;">
         <label style="position:absolute;left:-9999px;" for="quickstart-name">Name</label>
         <input id="quickstart-name" name="fields[name]" type="text" placeholder="Name" required autocomplete="name" style="box-sizing:border-box;flex:1 1 220px;min-width:200px;border:2px solid rgba(255,255,255,0.22);background:#fff;color:#0a0a1a;font-size:16px;padding:16px 15px;border-radius:6px;outline:none;">
@@ -120,6 +120,39 @@ ml('account', '1611323');
       <input type="hidden" name="ml-submit" value="1">
       <input type="hidden" name="anticsrf" value="true">
     </form>
+    <script>
+    document.getElementById('quickstart-checklist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('quickstart-submit');
+      var form = this;
+      var name = form.querySelector('[name="fields[name]"]').value;
+      var email = form.querySelector('[name="fields[email]"]').value;
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '0.7';
+      var data = new FormData();
+      data.append('fields[name]', name);
+      data.append('fields[email]', email);
+      data.append('ml-submit', '1');
+      data.append('anticsrf', 'true');
+      fetch('https://assets.mailerlite.com/jsonp/1611323/forms/186997258521150558/subscribe', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        btn.textContent = 'Check your email for the checklist! ✅';
+        btn.style.background = '#15803D';
+        btn.style.opacity = '1';
+        form.querySelector('[name="fields[name]"]').value = '';
+        form.querySelector('[name="fields[email]"]').value = '';
+      })
+      .catch(function() {
+        btn.textContent = 'Check your email for the checklist! ✅';
+        btn.style.background = '#15803D';
+        btn.style.opacity = '1';
+      });
+    });
+    </script>
     <script>
     
 </script>
