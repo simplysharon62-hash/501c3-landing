@@ -1,53 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="501(c)(3) Made Simple Course — practical guidance to help you move from nonprofit idea to IRS filing with confidence." />
-  <title>501(c)(3) Made Simple Course | From Idea to IRS Approval</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{--navy:#0b1024;--navy2:#151c3d;--gold:#c79a2b;--goldlight:#efd58d;--purple:#6b2fa0;--text:#171717;--muted:#62666f;--line:#e7e8ee;--soft:#f7f8fc;--white:#fff;--success:#176b3a}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6} a{color:inherit}.container{width:min(1120px,calc(100% - 40px));margin:0 auto}
-    .topbar{background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);position:sticky;top:0;z-index:1000}.topbar-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:-.03em;font-size:20px;text-decoration:none}.brand span{color:var(--goldlight)}
-    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:10px;font-weight:800;transition:.2s;cursor:pointer;border:0}.nav-cta{background:var(--gold);color:var(--navy);padding:12px 20px;white-space:nowrap}.btn{padding:15px 24px;font-size:16px}.btn:hover,.nav-cta:hover{transform:translateY(-2px)}.btn-primary{background:var(--gold);color:var(--navy);box-shadow:0 12px 32px rgba(199,154,43,.26)}.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.38)}.btn-purple{width:100%;background:var(--purple);color:#fff}
-    .hero{color:#fff;background:radial-gradient(circle at 85% 15%,rgba(199,154,43,.22),transparent 28%),radial-gradient(circle at 15% 80%,rgba(107,47,160,.25),transparent 30%),linear-gradient(135deg,var(--navy),var(--navy2));padding:96px 0 82px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}.eyebrow{display:inline-block;padding:8px 13px;border-radius:999px;background:rgba(239,213,141,.13);color:var(--goldlight);border:1px solid rgba(239,213,141,.25);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px}h1{margin:0 0 20px;font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.055em}.hero h1 span{color:var(--goldlight)}.hero-subtitle{font-size:clamp(18px,2vw,22px);color:rgba(255,255,255,.78);max-width:680px;margin:0 0 28px}.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}.microcopy{color:rgba(255,255,255,.63);font-size:14px}
-    .hero-card{background:rgba(255,255,255,.96);color:var(--text);border-radius:24px;padding:34px;box-shadow:0 30px 80px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.6)}.hero-card .mini{color:var(--purple);text-transform:uppercase;letter-spacing:.11em;font-size:12px;font-weight:900}.hero-card h2{font-size:30px;line-height:1.15;margin:10px 0 12px;letter-spacing:-.03em}.hero-card p{color:var(--muted);margin:0 0 24px}
-    .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:30px 0;border-bottom:1px solid var(--line);background:#fff}.trust-item{text-align:center;font-weight:800;color:var(--navy)}.trust-item small{display:block;font-weight:500;color:var(--muted);margin-top:4px}section{padding:88px 0}.section-kicker{color:var(--purple);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:12px}.section-title{font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.045em;margin:0 0 18px;color:var(--navy)}.section-intro{color:var(--muted);font-size:18px;max-width:760px;margin:0}
-    .problem-grid,.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}.card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;box-shadow:0 12px 36px rgba(12,16,36,.05)}.card .number{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#f2ecfa;color:var(--purple);font-weight:900;margin-bottom:18px}.card h3{margin:0 0 10px;color:var(--navy);font-size:21px}.card p{margin:0;color:var(--muted)}.soft{background:var(--soft)}
-    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:center}.about-visual{min-height:420px;border-radius:24px;background:linear-gradient(160deg,rgba(107,47,160,.15),rgba(199,154,43,.18)),linear-gradient(135deg,#f5f1fb,#fff8e8);border:1px solid var(--line);display:grid;place-items:center;padding:40px;text-align:center}.about-badge{width:180px;height:180px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;padding:25px;font-weight:900;line-height:1.15;box-shadow:0 20px 50px rgba(11,16,36,.22)}.about-copy p{color:var(--muted);font-size:17px}.quote{border-left:4px solid var(--gold);padding-left:20px;color:var(--navy);font-weight:800;font-size:20px;margin-top:28px}
-    .price-section{background:var(--navy);color:#fff}.price-wrap{display:grid;grid-template-columns:1fr .8fr;gap:50px;align-items:center}.price-section .section-title{color:#fff}.price-section .section-intro{color:rgba(255,255,255,.7)}.price-box{background:#fff;color:var(--text);border-radius:22px;padding:34px;box-shadow:0 24px 70px rgba(0,0,0,.28)}.price{font-size:56px;font-weight:900;line-height:1;color:var(--navy);letter-spacing:-.04em;margin:10px 0 8px}.price-note{color:var(--muted);font-size:14px;margin-bottom:22px}.checklist{list-style:none;margin:26px 0;padding:0;display:grid;gap:12px}.checklist li{position:relative;padding-left:30px;color:rgba(255,255,255,.84)}.checklist li:before{content:'✓';position:absolute;left:0;color:var(--goldlight);font-weight:900}
-    .faq{display:grid;gap:14px;margin-top:36px}details{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff}summary{cursor:pointer;font-weight:800;color:var(--navy)}details p{color:var(--muted);margin:12px 0 0}.final-cta{text-align:center;background:radial-gradient(circle at 50% 0%,rgba(199,154,43,.18),transparent 35%),var(--navy);color:#fff}.final-cta h2{font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:0 0 18px}.final-cta p{color:rgba(255,255,255,.72);font-size:18px;max-width:700px;margin:0 auto 28px}footer{padding:28px 0;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    .ml-form-embedContainer,.ml-form-embedWrapper,.ml-form-align-center,.ml-form-embedBody{width:100%!important;max-width:100%!important;background:transparent!important;border:0!important;padding:0!important;margin:0!important;box-shadow:none!important}.ml-form-embedContent{display:none!important}.ml-form-fieldRow{margin-bottom:10px!important}.ml-form-fieldRow input{width:100%!important;background:#fff!important;color:#171717!important;border:1px solid #d5d8e1!important;border-radius:9px!important;padding:14px 15px!important;font:inherit!important}.ml-form-embedSubmit{width:100%!important;margin-top:12px!important}.ml-form-embedSubmit button{width:100%!important;border:0!important;border-radius:9px!important;padding:15px!important;font:inherit!important;font-weight:900!important;background:var(--purple)!important;color:#fff!important;cursor:pointer!important}.ml-form-successBody{padding:18px!important;background:#eef9f1!important;border:1px solid #cbe8d3!important;border-radius:12px!important;color:var(--success)!important}
-    @media(max-width:900px){.hero-grid,.about-grid,.price-wrap{grid-template-columns:1fr}.hero{padding-top:72px}.problem-grid,.benefits-grid{grid-template-columns:1fr 1fr}.about-visual{min-height:320px}}@media(max-width:640px){.container{width:min(100% - 28px,1120px)}.topbar-inner{min-height:64px}.brand{font-size:16px}.nav-cta{padding:10px 13px;font-size:13px}.hero{padding:64px 0 56px}.hero-card{padding:24px}section{padding:64px 0}.trust-row,.problem-grid,.benefits-grid{grid-template-columns:1fr}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}.price{font-size:48px}}
-  </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCE6FQ7XXC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TCE6FQ7XXC');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>501(c)(3) Quick Start Guide & Checklist | Project Full Out</title>
+<style>
+  html,body{margin:0;padding:0;overflow-x:hidden;overflow-y:auto;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#fff;color:#1a1a1a;line-height:1.65;}
+  a{color:#C8972A;}
+  .topbar{background:#0a0a1a;text-align:center;padding:14px 20px;}
+  .topbar a{display:inline-block;background:#C8972A;color:#0a0a1a;font-weight:900;padding:11px 28px;border-radius:6px;text-decoration:none;}
+  .download{background:#f5f2ea;text-align:center;padding:14px 20px;font-weight:700;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+  .hero{background:linear-gradient(135deg,#0a0a1a 0%,#121212 60%,#1b1230 100%);color:#fff;text-align:center;padding:70px 24px;}
+  .badge{display:inline-block;background:#C8972A;color:#0a0a1a;font-size:12px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;padding:8px 14px;border-radius:4px;margin-bottom:18px;}
+  h1{font-size:44px;font-weight:900;line-height:1.08;margin:0 auto 14px;max-width:820px;letter-spacing:-0.8px;}
+  h2{font-size:28px;font-weight:900;margin:46px 0 16px;line-height:1.2;}
+  h3{font-size:20px;font-weight:900;margin:26px 0 8px;}
+  p{font-size:17px;margin:0 0 18px;}
+  .intro{padding:46px 0 8px;}
+  .panel{background:#f7f4ec;border-left:5px solid #C8972A;padding:22px 24px;margin:24px 0;border-radius:6px;}
+  .cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:22px 0;}
+  .card{border:1px solid #e7e0d0;background:#fff;border-radius:8px;padding:18px;}
+  .card strong{display:block;font-size:16px;margin-bottom:6px;}
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+  th,td{border:1px solid #ddd;padding:11px;text-align:left;vertical-align:top;}
+  th{background:#0a0a1a;color:#fff;}
+  .total-row{background:#0a0a1a;color:#fff;font-weight:800;}
+  .checklist{list-style:none;padding:0;margin:22px 0;}
+  .checklist li{background:#fff;border:1px solid #e7e0d0;border-radius:8px;padding:14px 16px;margin:10px 0;font-size:16px;}
+  .steps{counter-reset:step;margin-top:20px;}
+  .step{display:flex;gap:16px;margin:18px 0;align-items:flex-start;}
+  .step-num{background:#C8972A;color:#0a0a1a;font-weight:900;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .about{background:#f7f4ec;padding:54px 0;margin-top:54px;border-top:1px solid #eadfca;border-bottom:1px solid #eadfca;}
+  .cta{background:#0a0a1a;color:#fff;text-align:center;padding:54px 24px;margin-top:0;}
+  .cta h2{color:#fff;margin-top:0;}
+  .cta a{display:inline-block;background:#C8972A;color:#0a0a1a;font-weight:900;padding:15px 34px;border-radius:6px;text-decoration:none;margin-top:16px;font-size:17px;}
+  footer{text-align:center;padding:30px 24px;color:#666;font-size:13px;}
+  @media(max-width:600px){h1{font-size:34px;} h2{font-size:24px;} .hero{padding:56px 20px;}}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="container topbar-inner"><a class="brand" href="#top">501(c)(3) <span>Made Simple</span></a><a class="nav-cta" href="https://payhip.com/order?link=i2WgP">Enroll — $49.99</a></div></header>
-<main id="top">
-<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">From Idea to IRS Approval</div><h1>Start your nonprofit with <span>clarity and confidence.</span></h1><p class="hero-subtitle">The 501(c)(3) Made Simple Course gives first-time nonprofit founders a practical path through the early steps, paperwork, and decisions that often feel overwhelming.</p><div class="hero-buttons"><a class="btn btn-primary" href="https://payhip.com/order?link=i2WgP">Enroll for $49.99</a><a class="btn btn-secondary" href="#free-guide">Get the Free Guide</a></div><div class="microcopy">Created by Ana Ogbueze, founder of Project: FULL OUT.</div></div>
-<div class="hero-card" id="free-guide"><div class="mini">Free nonprofit starter resource</div><h2>501(c)(3) Quick Start Guide & Checklist</h2><p>Enter your name and email to receive a simple starting guide for organizing your nonprofit journey.</p>
-<div id="mlb2-41069583" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41069583"><div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm"><div class="ml-form-embedBody ml-form-embedBodyDefault row-form"><form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1611323/forms/186997258521150558/subscribe" method="post" target="_blank"><div class="ml-form-formContent"><div class="ml-form-fieldRow"><input aria-label="name" type="text" name="fields[name]" placeholder="Your name" autocomplete="given-name"></div><div class="ml-form-fieldRow"><input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="Email address" autocomplete="email" required></div></div><input type="hidden" name="ml-submit" value="1"><div class="ml-form-embedSubmit"><button type="submit" class="primary">Send Me the Free Guide</button><button disabled style="display:none" type="button" class="loading">Loading...</button></div><input type="hidden" name="anticsrf" value="true"></form></div><div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4 style="margin:0 0 8px">You're in!</h4><p style="margin:0">Check your email for the 501(c)(3) Quick Start Guide & Checklist.</p></div></div></div></div></div>
-<script>function ml_webform_success_41069583(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-41069583 .row-success').show();$('.ml-subscribe-form-41069583 .row-form').hide();}</script><script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b"></script>
-</div></div></section>
-<div class="container trust-row"><div class="trust-item">Beginner Friendly<small>No prior nonprofit experience required</small></div><div class="trust-item">Step-by-Step Guidance<small>Move through the process in order</small></div><div class="trust-item">Practical Templates<small>Use clear tools instead of starting from scratch</small></div></div>
-<section><div class="container"><div class="section-kicker">Why founders get stuck</div><h2 class="section-title">Starting a nonprofit should not feel like solving a puzzle alone.</h2><p class="section-intro">Most first-time founders are not short on passion. They are short on clear, organized guidance that explains what to do first, what comes next, and how the pieces fit together.</p><div class="problem-grid"><div class="card"><div class="number">01</div><h3>Too much conflicting information</h3><p>Online advice can be scattered, outdated, or written in language that is difficult to apply.</p></div><div class="card"><div class="number">02</div><h3>Fear of making a costly mistake</h3><p>Founders often delay because they are worried about choosing the wrong structure or filing incorrectly.</p></div><div class="card"><div class="number">03</div><h3>No clear order of operations</h3><p>Even when you know the individual tasks, it can be hard to know which one belongs first.</p></div></div></div></section>
-<section class="soft"><div class="container about-grid"><div class="about-visual"><div class="about-badge">Nearly a decade of nonprofit experience</div></div><div class="about-copy"><div class="section-kicker">Meet Ana Ogbueze</div><h2 class="section-title">She is not teaching theory.</h2><p>Ana Ogbueze is the founder of Project: FULL OUT, a successful 501(c)(3) nonprofit that has provided training, performance opportunities, and development programs for Charlotte dancers since 2016.</p><p>She created the 501(c)(3) Made Simple Course to help everyday people understand the early nonprofit process without getting lost in legal-sounding language or months of research.</p><div class="quote">“I filed the paperwork, built the organization, and kept it moving. This course is the guidance I wish more founders had at the beginning.”</div></div></div></section>
-<section><div class="container"><div class="section-kicker">What the course helps you do</div><h2 class="section-title">Move from uncertainty to a clear plan.</h2><p class="section-intro">The course is designed to help you organize your next steps, make informed decisions, and approach the nonprofit process with greater confidence.</p><div class="benefits-grid"><div class="card"><h3>Clarify your nonprofit idea</h3><p>Define the purpose, mission, and community need your organization is designed to address.</p></div><div class="card"><h3>Understand the setup process</h3><p>Learn how the major formation and exemption steps fit together before you begin filing.</p></div><div class="card"><h3>Prepare more confidently</h3><p>Use guided explanations and practical tools to reduce uncertainty and avoid unnecessary delays.</p></div><div class="card"><h3>Build a stronger foundation</h3><p>Think beyond paperwork and start creating an organization that can operate responsibly.</p></div><div class="card"><h3>Save research time</h3><p>Follow an organized path instead of searching dozens of websites for disconnected answers.</p></div><div class="card"><h3>Know what to do next</h3><p>Replace confusion with an actionable sequence you can follow at your own pace.</p></div></div></div></section>
-<section class="price-section"><div class="container price-wrap"><div><div class="section-kicker" style="color:var(--goldlight)">501(c)(3) Made Simple Course</div><h2 class="section-title">Your nonprofit idea deserves a real starting point.</h2><p class="section-intro">Get lifetime access to the course and work through the material on your own schedule.</p><ul class="checklist"><li>Clear, beginner-friendly lessons</li><li>Practical nonprofit startup guidance</li><li>Helpful worksheets and templates</li><li>Self-paced access</li><li>Created from real nonprofit experience</li></ul></div><div class="price-box"><div style="font-weight:800;color:var(--purple)">One-time enrollment</div><div class="price">$49.99</div><div class="price-note">Secure checkout and course access are provided through Payhip.</div><a class="btn btn-purple" href="https://payhip.com/order?link=i2WgP">Start the Course</a></div></div></section>
-<section class="soft"><div class="container"><div class="section-kicker">Frequently asked questions</div><h2 class="section-title">Questions before you enroll</h2><div class="faq"><details><summary>Is this course for complete beginners?</summary><p>Yes. It was designed for people who have a nonprofit idea but are unsure how to organize the process or where to begin.</p></details><details><summary>Do I need an attorney to take this course?</summary><p>No. The course helps you understand the startup process and prepare more confidently. You may still choose to consult an attorney, accountant, or tax professional for advice about your specific situation.</p></details><details><summary>How quickly can I complete it?</summary><p>The course is self-paced. You can move through it quickly or take your time as you complete each step.</p></details><details><summary>How will I receive access?</summary><p>After checkout through Payhip, you will receive the instructions provided on the confirmation page and by email.</p></details><details><summary>Does the course guarantee IRS approval?</summary><p>No course can guarantee approval. The goal is to help you better understand, organize, and prepare for the process.</p></details></div></div></section>
-<section class="final-cta"><div class="container"><h2>Start building your nonprofit with confidence.</h2><p>Stop piecing together random information and begin with a practical, organized path created for first-time founders.</p><a class="btn btn-primary" href="https://payhip.com/order?link=i2WgP">Enroll in the Course — $49.99</a></div></section>
+
+<div class="download">
+  ⬇ <a target="_parent" href="https://drive.google.com/uc?export=download&id=1uOu8Gs2YWkfj3X1ok4qoedj5t1SKP4y8">Download Free PDF Guide</a>
+</div>
+
+<div class="topbar">
+  <a target="_parent" href="https://payhip.com/order?link=i2WgP">Enroll in the Course — $29.99 →</a>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">Free Guide & Checklist</div>
+    <h1>501(c)(3) Quick Start Guide & Checklist</h1>
+    <p style="font-size:20px;color:rgba(255,255,255,0.78);max-width:700px;margin:0 auto;">Everything first-time nonprofit founders should know before filing for IRS tax-exempt status.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-top:20px;">From Project Full Out • Created by Ana Ogbueze</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="intro">
+    <p><strong>Your community does not need you stuck trying to figure out the IRS alone.</strong> They need you prepared, organized, and ready to start.</p>
+    <p>If you are thinking about starting a nonprofit, this guide will help you understand what to prepare before you file, what decisions matter most, and how to take the next step with more confidence.</p>
+
+    <div class="panel">
+      <h2 style="margin-top:0;">Why This Guide Exists</h2>
+      <p>Most people do not start a nonprofit because they want to learn IRS regulations. They start because they want to solve a problem in their community.</p>
+      <p>This guide was created to help you understand the nonprofit formation process, avoid common mistakes, and make informed decisions before spending money on attorneys, formation services, or software you may not need yet.</p>
+      <p>If you are ready for the full step-by-step system, the <strong>501(c)(3) Made Simple Course</strong> walks you through the complete process from idea to IRS approval.</p>
+    </div>
+
+    <h2>What You’ll Learn Inside This Free Guide</h2>
+    <div class="cardgrid">
+      <div class="card"><strong>Where to start</strong>Understand the early decisions that shape your nonprofit before you file.</div>
+      <div class="card"><strong>What to prepare</strong>Know the basic documents, board details, and planning pieces you will need.</div>
+      <div class="card"><strong>What mistakes to avoid</strong>Spot common beginner mistakes that can slow down the process.</div>
+      <div class="card"><strong>What comes next</strong>See how the full course helps you move from research to action.</div>
+    </div>
+
+    <h2>Quick Start Checklist</h2>
+    <ul class="checklist">
+      <li>✓ Clarify your nonprofit mission, purpose, and community need.</li>
+      <li>✓ Choose a nonprofit name and check availability in your state.</li>
+      <li>✓ Identify potential board members and define board roles.</li>
+      <li>✓ Decide whether your organization may qualify for Form 1023-EZ or will need the full Form 1023.</li>
+      <li>✓ Prepare your Articles of Incorporation, bylaws, and conflict of interest policy.</li>
+      <li>✓ Get your EIN for free through IRS.gov before applying for tax-exempt status.</li>
+      <li>✓ Gather your budget, programs, activities, and organizing details before submitting to the IRS.</li>
+    </ul>
+
+    <h2>What the 501(c)(3) Made Simple Course Includes</h2>
+    <p>The free guide gives you the starting point. The course gives you the full roadmap, templates, examples, and step-by-step instruction.</p>
+
+    <table>
+      <tr><th>Included in the Course</th><th>How It Helps</th></tr>
+      <tr><td>10-step course from idea to IRS approval</td><td>Follow the process in order instead of guessing what comes next.</td></tr>
+      <tr><td>Articles of Incorporation guidance</td><td>Understand what your organizing documents should include.</td></tr>
+      <tr><td>Bylaws and conflict of interest templates</td><td>Save time with structured examples you can adapt.</td></tr>
+      <tr><td>Form 1023 / 1023-EZ guidance</td><td>Learn how to approach the IRS application with more confidence.</td></tr>
+      <tr><td>Budget, board, donor, volunteer, and fundraising templates</td><td>Build your nonprofit foundation beyond just the paperwork.</td></tr>
+      <tr><td>Lifetime access</td><td>Review the lessons whenever you need them.</td></tr>
+      <tr class="total-row"><td><strong>Course price</strong></td><td><strong>$29.99 — one-time payment</strong></td></tr>
+    </table>
+
+    <h2>Your Next 5 Steps</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><strong>Clarify your mission</strong> — Write down who you serve, what problem you solve, and why your organization needs to exist.</div></div>
+      <div class="step"><div class="step-num">2</div><div><strong>Check your name</strong> — Search your state business database and make sure your nonprofit name is available.</div></div>
+      <div class="step"><div class="step-num">3</div><div><strong>Gather your board</strong> — Identify people who can help govern, guide, and support the organization.</div></div>
+      <div class="step"><div class="step-num">4</div><div><strong>Prepare your documents</strong> — Articles, bylaws, conflict policy, budget, and program details come before the IRS application.</div></div>
+      <div class="step"><div class="step-num">5</div><div><strong>Enroll when you are ready</strong> — The <strong>501(c)(3) Made Simple Course</strong> walks you through the full process step by step.</div></div>
+    </div>
+  </section>
 </main>
-<footer><div class="container">© 2026 501(c)(3) Made Simple. Created by Ana Ogbueze, founder of Project: FULL OUT.<br>Educational content only. This course is not legal, tax, or financial advice.</div></footer>
+
+<section class="about">
+  <div class="wrap">
+    <div class="badge">About the Creator</div>
+    <h2 style="margin-top:0;">Meet Ana Ogbueze</h2>
+    <p>Since 2016, Ana Ogbueze has owned and operated <strong>Project: FULL OUT</strong>, a 501(c)(3) nonprofit that provides training, performance opportunities, and development programs for Charlotte dancers from all walks of life — helping diversify the local dance industry and promote the therapeutic benefits of dance.</p>
+    <p>As a dance studio owner, producer, director, choreographer, and retired NBA Dance Team member, Ana has cast over <strong>100 dancers each season</strong> and built a platform on one simple idea: push for opportunities.</p>
+    <p>She is not teaching theory here — she is the person who filed the paperwork, ran the nonprofit, and kept it thriving for nearly a decade.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready for the Complete Step-by-Step System?</h2>
+    <p>Enroll in the <strong>501(c)(3) Made Simple Course</strong> and get lifetime access to the complete course, templates, worksheets, examples, and guidance to help you move from idea to IRS approval.</p>
+    <a target="_parent" href="https://payhip.com/order?link=i2WgP">Enroll Now for $29.99 →</a>
+  </div>
+</section>
+
+<footer>
+  ProjectFullOut.com | @ProjectFullOut<br><br>
+  © 2025 Project Full Out Inc. | <a target="_parent" href="https://projectfullout.com">ProjectFullOut.com</a> | <a target="_parent" href="https://payhip.com/order?link=i2WgP">Enroll in the 501(c)(3) Made Simple Course</a><br>
+  Educational information only. Project Full Out does not provide legal, tax, or financial advice.
+</footer>
+
 </body>
 </html>
