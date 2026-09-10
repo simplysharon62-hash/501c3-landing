@@ -50,7 +50,28 @@ footer .footlinks a:hover{text-decoration:underline;}
 .eligibility-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px;}
 .eligibility-table th,.eligibility-table td{border:1px solid #e7e0d0;padding:12px;text-align:left;}
 .eligibility-table th{background:#0a0a1a;color:#fff;}
+.checklist-modal[hidden]{display:none;}
+.checklist-modal .d-none{display:none!important;}
+.checklist-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.checklist-modal__backdrop{position:absolute;inset:0;background:rgba(10,10,26,0.82);backdrop-filter:blur(3px);}
+.checklist-modal__dialog{position:relative;width:min(100%,480px);max-height:calc(100vh - 40px);overflow:auto;background:#fff;border:1px solid #e7e0d0;border-radius:14px;padding:32px;box-shadow:0 20px 70px rgba(0,0,0,0.35);}
+.checklist-modal__close{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:transparent;color:#666;font-size:30px;line-height:1;cursor:pointer;}
+.checklist-modal__dialog h2{margin:0 34px 10px 0;font-size:26px;}
+.checklist-modal__dialog p{font-size:16px;}
+.checklist-form label{display:block;font-weight:800;margin-bottom:7px;color:#0a0a1a;}
+.checklist-form input{width:100%;padding:13px 14px;border:1px solid #bbb;border-radius:8px;font:inherit;font-size:16px;}
+.checklist-form input:focus{outline:3px solid rgba(200,151,42,0.25);border-color:#C8972A;}
+.checklist-form .ml-form-embedSubmit{margin-top:14px;}
+.checklist-form button,.checklist-download{display:block;width:100%;border:0;background:#C8972A;color:#0a0a1a;font:inherit;font-weight:900;padding:14px 20px;border-radius:8px;text-align:center;text-decoration:none;cursor:pointer;}
+.checklist-form button:disabled{cursor:wait;opacity:.7;}
+.checklist-status{min-height:24px;margin:10px 0 0;color:#b42318;font-size:14px;font-weight:700;}
+.checklist-privacy{margin:12px 0 0!important;color:#666!important;font-size:12px!important;text-align:center;}
+.checklist-success{text-align:center;}
+.checklist-success h2{margin-right:0;}
+.checklist-success p{color:#333;}
+body.checklist-modal-open{overflow:hidden;}
 @media(max-width:600px){h1{font-size:28px;} .hero{padding:44px 20px;} .btn-secondary{margin-left:0;margin-top:10px;display:inline-block;}}
+@media(max-width:480px){.checklist-modal{padding:12px;}.checklist-modal__dialog{padding:28px 20px 22px;max-height:calc(100vh - 24px);}.checklist-modal__dialog h2{font-size:23px;}}
 
 
 </style>
@@ -78,6 +99,7 @@ footer .footlinks a:hover{text-decoration:underline;}
     <p style="font-size:18px;color:rgba(255,255,255,0.78);max-width:640px;margin:0 auto;">News, guides, and legitimate free programs to help you run and grow your nonprofit — no course to buy, no catch.</p>
     <div style="margin-top:30px;">
       <a class="btn-primary" target="_blank" rel="noopener" href="https://www.youtube.com/@501c3madesimple">Subscribe on YouTube</a>
+      <a class="btn-secondary" href="#checklist-signup" data-checklist-signup>Free Quick Start Checklist</a>
     </div>
   </div>
 </section>
@@ -141,6 +163,43 @@ footer .footlinks a:hover{text-decoration:underline;}
   &copy; 2026 501c3 Made Simple<br>
   Educational information only. 501c3 Made Simple does not provide legal, tax, or financial advice. Links to third-party programs are provided for informational purposes; eligibility and terms are determined solely by each respective organization.
 </footer>
+
+<div class="checklist-modal" id="checklist-signup" hidden>
+  <div class="checklist-modal__backdrop" data-checklist-close></div>
+  <section class="checklist-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="checklist-title">
+    <button class="checklist-modal__close" type="button" aria-label="Close checklist signup" data-checklist-close>&times;</button>
+    <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45654074" id="mlb2-45654074">
+      <div class="row-form ml-block-form">
+        <h2 id="checklist-title">Free Quick Start Checklist</h2>
+        <p>Enter your email to join 501c3 Made Simple and get immediate access to the checklist.</p>
+        <form class="ml-block-form checklist-form" action="https://assets.mailerlite.com/jsonp/2619900/forms/197952777397208566/subscribe" method="post" target="_blank" novalidate>
+          <div class="ml-form-fieldRow ml-last-item">
+            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+              <label for="checklist-email">Email address</label>
+              <input id="checklist-email" class="form-control" type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" aria-required="true" required>
+            </div>
+          </div>
+          <input type="hidden" name="ml-submit" value="1">
+          <input type="hidden" name="anticsrf" value="true">
+          <div class="ml-form-embedSubmit">
+            <button class="primary" type="submit">Get the Checklist</button>
+            <button class="loading" type="button" disabled hidden>Sending&hellip;</button>
+          </div>
+          <p class="checklist-status ml-server-error d-none" role="alert" aria-live="polite"></p>
+        </form>
+        <p class="checklist-privacy">We respect your privacy. Unsubscribe anytime.</p>
+      </div>
+      <div class="row-success checklist-success" hidden>
+        <h2>You're all set!</h2>
+        <p>Your checklist download should start automatically. If it does not, use the button below.</p>
+        <a class="checklist-download" data-checklist-download>Download the Checklist</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="/checklist-signup.js"></script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
 
 </body>
 </html>
