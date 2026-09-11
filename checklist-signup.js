@@ -11,7 +11,7 @@
   var status = modal.querySelector(".checklist-status");
   var firstTrigger = null;
   var requestTimer = null;
-  var checklistPath = "/501c3-quick-start-checklist.pdf";
+  var checklistPath = "/501c3-quick-start-checklist-expanded.pdf";
 
   function setBusy(isBusy) {
     submitButton.disabled = isBusy;
@@ -111,7 +111,7 @@
     formRow.hidden = true;
     successRow.hidden = false;
     downloadLink.href = checklistPath;
-    downloadLink.download = "501c3-quick-start-checklist.pdf";
+    downloadLink.download = "501c3-quick-start-checklist-expanded.pdf";
     downloadLink.focus();
     downloadLink.click();
   };
