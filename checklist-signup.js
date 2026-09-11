@@ -17,7 +17,7 @@
     submitButton.disabled = isBusy;
     submitButton.hidden = isBusy;
     loadingButton.hidden = !isBusy;
-    email.disabled = isBusy;
+    email.readOnly = isBusy;
   }
 
   function showError(message) {
