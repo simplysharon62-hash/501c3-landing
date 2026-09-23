@@ -86,6 +86,8 @@ footer .footlinks a:hover{text-decoration:underline;}
 .checklist-form label{display:block;font-weight:800;margin-bottom:7px;color:#0a0a1a;}
 .checklist-form input{width:100%;padding:13px 14px;border:1px solid #bbb;border-radius:8px;font:inherit;font-size:16px;}
 .checklist-form button,.checklist-download{display:block;width:100%;border:0;background:#C8972A;color:#0a0a1a;font:inherit;font-weight:900;padding:14px 20px;border-radius:8px;text-align:center;text-decoration:none;cursor:pointer;}
+.checklist-form button[hidden],.checklist-form [hidden]{display:none!important;}
+.checklist-form .loading{margin-top:0;}
 .checklist-privacy{margin:12px 0 0!important;color:#666!important;font-size:12px!important;text-align:center;}
 .checklist-success{text-align:center;}
 body.checklist-modal-open{overflow:hidden;}
@@ -241,6 +243,12 @@ body.checklist-modal-open{overflow:hidden;}
     </details>
   </section>
 
+  <section class="card section-anchor" id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">About 501c3 Made Simple</h2>
+    <p>501c3 Made Simple helps nonprofit founders understand the steps, documents, tools, and free resources involved in building a compliant organization.</p>
+    <p>Our goal is to make nonprofit information easier to understand so you can make informed decisions and know when professional legal, tax, or accounting advice is needed.</p>
+  </section>
+
   <div class="cta">
     <h2>New Videos Every Week</h2>
     <p>We break down a new free nonprofit resource every week on YouTube — no fluff, just what it is and how to get it.</p>
@@ -249,7 +257,7 @@ body.checklist-modal-open{overflow:hidden;}
 </main>
 
 
-<footer class="section-anchor" id="about">
+<footer>
   <div class="footlinks">
     <a href="#about">About</a>
     <a href="/contact.html">Contact</a>
