@@ -310,9 +310,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const openers = document.querySelectorAll('[data-checklist-signup]');
   const closers = modal.querySelectorAll('[data-checklist-close]');
   const email = document.getElementById('checklist-email');
-  const success = modal.querySelector('.row-success');
-  const download = modal.querySelector('[data-checklist-download]');
-  let downloadOpened = false;
 
   function openChecklist(event) {
     if (event) event.preventDefault();
@@ -326,14 +323,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.remove('checklist-modal-open');
   }
 
-  function openDownloadOnce() {
-    if (downloadOpened || !download) return;
-    downloadOpened = true;
-    setTimeout(function () {
-      window.open(download.href, '_blank', 'noopener');
-    }, 350);
-  }
-
   openers.forEach(function (button) {
     button.addEventListener('click', openChecklist);
   });
@@ -345,22 +334,29 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape' && !modal.hidden) closeChecklist();
   });
-
-  // MailerLite's webform script reveals .row-success only after a successful
-  // subscription. When that happens, automatically open the checklist PDF.
-  if (success) {
-    const successObserver = new MutationObserver(function () {
-      const visible = !success.hidden &&
-        window.getComputedStyle(success).display !== 'none';
-      if (visible) openDownloadOnce();
-    });
-
-    successObserver.observe(success, {
-      attributes: true,
-      attributeFilter: ['hidden', 'class', 'style']
-    });
-  }
 });
+
+function ml_webform_success_45935681() {
+  const modal = document.getElementById('checklist-signup');
+  if (!modal) return;
+
+  const formArea = modal.querySelector('.row-form');
+  const successArea = modal.querySelector('.row-success');
+  const download = modal.querySelector('[data-checklist-download]');
+
+  if (formArea) formArea.style.display = 'none';
+
+  if (successArea) {
+    successArea.hidden = false;
+    successArea.style.display = 'block';
+  }
+
+  if (download && download.href) {
+    setTimeout(function () {
+      window.location.href = download.href;
+    }, 700);
+  }
+}
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
 
