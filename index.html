@@ -274,9 +274,9 @@ body.checklist-modal-open{overflow:hidden;}
     <button class="checklist-modal__close" type="button" aria-label="Close checklist signup" data-checklist-close>&times;</button>
     <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45935681" id="mlb2-45935681">
       <div class="row-form ml-block-form">
-        <h2 id="checklist-title">Free Quick Start Checklist</h2>
-        <p>Enter your email to join 501c3 Made Simple and get immediate access to the checklist.</p>
-        <form class="ml-block-form checklist-form" action="https://assets.mailerlite.com/jsonp/2619900/forms/198637292654429839/subscribe" method="post" target="_blank" novalidate>
+        <h2 id="checklist-title">Get the Free 501(c)(3) Quick Start Checklist</h2>
+        <p>Enter your email to get instant access to the checklist.</p>
+        <form class="ml-block-form checklist-form" action="https://assets.mailerlite.com/jsonp/2619900/forms/198637292654429839/subscribe" method="post" novalidate>
           <div class="ml-form-fieldRow ml-last-item">
             <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
               <label for="checklist-email">Email address</label>
@@ -294,9 +294,9 @@ body.checklist-modal-open{overflow:hidden;}
         <p class="checklist-privacy">We respect your privacy. Unsubscribe anytime.</p>
       </div>
       <div class="row-success checklist-success" hidden>
-        <h2>You're all set!</h2>
-        <p>Your checklist download should start automatically. If it does not, use the button below.</p>
-      <a class="checklist-download" data-checklist-download href="/501c3-quick-start-checklist.pdf" target="_blank" rel="noopener">Download My Checklist</a>
+        <h2>Thank you!</h2>
+        <p>Your signup was successful. Your 501(c)(3) Quick Start Checklist is ready.</p>
+      <a class="checklist-download" data-checklist-download href="/501c3-quick-start-checklist-expanded.pdf" target="_blank" rel="noopener">Open My Checklist</a>
       </div>
     </div>
   </section>
@@ -310,6 +310,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const openers = document.querySelectorAll('[data-checklist-signup]');
   const closers = modal.querySelectorAll('[data-checklist-close]');
   const email = document.getElementById('checklist-email');
+  const success = modal.querySelector('.row-success');
+  const download = modal.querySelector('[data-checklist-download]');
+  let downloadOpened = false;
 
   function openChecklist(event) {
     if (event) event.preventDefault();
@@ -323,15 +326,40 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.remove('checklist-modal-open');
   }
 
+  function openDownloadOnce() {
+    if (downloadOpened || !download) return;
+    downloadOpened = true;
+    setTimeout(function () {
+      window.open(download.href, '_blank', 'noopener');
+    }, 350);
+  }
+
   openers.forEach(function (button) {
     button.addEventListener('click', openChecklist);
   });
+
   closers.forEach(function (button) {
     button.addEventListener('click', closeChecklist);
   });
+
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape' && !modal.hidden) closeChecklist();
   });
+
+  // MailerLite's webform script reveals .row-success only after a successful
+  // subscription. When that happens, automatically open the checklist PDF.
+  if (success) {
+    const successObserver = new MutationObserver(function () {
+      const visible = !success.hidden &&
+        window.getComputedStyle(success).display !== 'none';
+      if (visible) openDownloadOnce();
+    });
+
+    successObserver.observe(success, {
+      attributes: true,
+      attributeFilter: ['hidden', 'class', 'style']
+    });
+  }
 });
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
